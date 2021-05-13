@@ -1,0 +1,58 @@
+# Values type to be processed for testing
+this_is_a_list:
+  - one
+  - two
+---
+this_is_a_string: one_string
+---
+this_is_an_integer: 21
+---
+this_is_a_float: 21.5
+---
+this_is_a_dictionary:
+  one: 1
+---
+hex:  0x4824
+---
+octal:  010
+---
+date: 2021-05-05
+---
+boolean:  Off
+---
+boolean:  True
+---
+boolean:  Yes
+---
+# Here below we check that the YAML parses the right type. If we enclose the value in " " it does parse it as String, else as Integer
+this_is_a_string: 1
+
+# Forcing a data type to be a specific one
+---
+this_is_an_integer: !!float 21
+---
+this_is_a_float: !!int "21"
+
+# Now with Multiline data
+example:  >
+        HTML goes into YAML
+        witout Canek's modification but by the YAML parser
+
+message:  |
+        This is a Message with Pipe
+        <p> "Here we prescerved the format by YAML parser,
+        as it is" </p>
+        
+# ConfigMap type is for different types called
+
+# Secret Type
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: !!base64 YWRtaW4
+  password: !!base64 YWRtaW4rwerwerew1
+
+# onlineyamltools.com
