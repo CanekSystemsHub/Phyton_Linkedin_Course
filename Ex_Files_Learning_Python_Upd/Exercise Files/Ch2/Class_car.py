@@ -19,5 +19,5 @@ class Cars:
 MyFirstCar = Cars(model = "Ford", make = "Mustang", year = "1981")
 
 MyFirstCar.print_model()
-# Despited the initial values we can set different values opon calling the method.
+# Despite of the initial values we can set different values opon calling the method.
 MyFirstCar.print_make_year(make = "Mustang", year = "1981")
